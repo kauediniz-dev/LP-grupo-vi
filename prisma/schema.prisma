@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+    url      = env("DATABASE_URL")
+
+}
+
+model PixValidation {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  bankName    String?
+  amount      Decimal? @db.Decimal(10, 2)
+  currency    String   @default("BRL")
+  confidence  Float?
+  status      String
+  minRequired Decimal  @db.Decimal(10, 2)
+  rawMessage  String?
+}
