@@ -8,12 +8,15 @@ Extraia as seguintes informações:
 - bank: nome do banco emissor (ex: "Nubank", "Itaú", "Bradesco")
 - amount: valor numérico transferido, formato decimal (ex: 97.00)
 - currency: sempre "BRL"
+- recipientName: nome do destinatário/recebedor exibido no comprovante
+- recipientKey: chave Pix do destinatário, se visível (CPF, e-mail, telefone ou chave aleatória)
 - confidence: sua confiança de 0 a 1 na leitura
 - success: true se conseguiu ler com confiança razoável, false caso contrário
 - message: mensagem curta explicando o resultado
 
-Se a imagem não for um comprovante Pix reconhecível, retorne success=false,
-bank=null, amount=null, confidence baixo, e uma message explicando.`;
+Se a imagem não for um comprovante Pix reconhecível, retorne success=false e os demais campos null.
+
+Responda SOMENTE com um JSON válido, sem texto antes ou depois.`;
 
 export async function analysePixReceipt(
   imageBase64: string,
@@ -51,6 +54,8 @@ export async function analysePixReceipt(
               bank: { type: "string", nullable: true },
               amount: { type: "number", nullable: true },
               currency: { type: "string" },
+              recipientName: { type: "string", nullable: true },
+              recipientKey: { type: "string", nullable: true },
               confidence: { type: "number" },
               message: { type: "string" },
             },
@@ -61,6 +66,8 @@ export async function analysePixReceipt(
               "currency",
               "confidence",
               "message",
+              "recipientName",
+              "recipientKey",
             ],
           },
         },
@@ -70,7 +77,6 @@ export async function analysePixReceipt(
 
   if (!response.ok) {
     const errorBody = await response.text();
-    console.error("Gemini API error body:", errorBody);
     throw new Error(`AI vision API error: ${response.status}`);
   }
 

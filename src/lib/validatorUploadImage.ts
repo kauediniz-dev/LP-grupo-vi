@@ -5,6 +5,8 @@ export const validatorUploadImageSchema = z.object({
   bank: z.string().nullable(),
   amount: z.number().nullable(),
   currency: z.string().default("BRL"),
+  recipientName: z.string().nullable(),
+  recipientKey: z.string().nullable(),
   confidence: z.number().min(0).max(1),
   message: z.string(),
 });
