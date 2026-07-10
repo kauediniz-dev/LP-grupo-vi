@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+// Define o formato esperado da resposta da API de visão AI
 export const validatorUploadImageSchema = z.object({
   success: z.boolean(),
   bank: z.string().nullable(),

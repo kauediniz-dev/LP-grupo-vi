@@ -26,7 +26,7 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Grupo VIP - Acesso Exclusivo",
   description:
-    "Envie o comprovante do seu Pix e libere seu acesso ao Grupo VIP Dicas Bet.",
+    "Envie o comprovante do seu Pix e libere seu acesso ao Grupo VIP.",
 };
 
 export default function RootLayout({
@@ -54,6 +54,8 @@ export default function RootLayout({
         {pixelId && (
           <>
             <Script id="meta-pixel" strategy="afterInteractive">
+              {" "}
+              {/* Configuração do Meta Pixel e GA4  */}
               {`
                 !function(f,b,e,v,n,t,s)
                 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

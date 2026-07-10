@@ -3,6 +3,7 @@ import {
   validatorUploadImageSchema,
 } from "./validatorUploadImage";
 
+// Prompt para a API de visão AI
 const SYSTEM_PROMPT = `Você recebe um print de comprovante de pagamento Pix.
 Extraia as seguintes informações:
 - bank: nome do banco emissor (ex: "Nubank", "Itaú", "Bradesco")
@@ -18,6 +19,7 @@ Se a imagem não for um comprovante Pix reconhecível, retorne success=false e o
 
 Responda SOMENTE com um JSON válido, sem texto antes ou depois.`;
 
+// Função para enviar a imagem para a API de visão AI
 export async function analysePixReceipt(
   imageBase64: string,
   mimeType: string,
@@ -75,6 +77,7 @@ export async function analysePixReceipt(
     },
   );
 
+  // Verifica se a resposta da API é válida
   if (!response.ok) {
     const errorBody = await response.text();
     throw new Error(`AI vision API error: ${response.status}`);

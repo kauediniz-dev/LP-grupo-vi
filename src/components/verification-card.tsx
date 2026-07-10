@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ALLOWED_MIME_TYPES, MAX_FILE_SIZE } from "@/lib/validatorUploadImage";
 import { trackInitiateCheckout, trackPurchase } from "@/lib/tracking";
 
+// Define os estados da transferencia
 type CardState =
   | { status: "idle" }
   | { status: "analyzing" }
@@ -16,9 +17,11 @@ type CardState =
     }
   | { status: "rejected"; message: string };
 
+// Link do WhatsApp para entrar no grupo VIP
 const whats_link =
   "https://api.whatsapp.com/send?phone=5511999999999&text=Olá!%20Enviei%20o%20comprovante%20do%20meu%20Pix.%20Pode%20verificar%3F";
 
+// Componente de cartão de verificação do Pix
 export function VerificationCard() {
   const [cardState, setCardState] = useState<CardState>({ status: "idle" });
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -47,6 +50,7 @@ export function VerificationCard() {
     handleSubmit(file);
   }
 
+  // Função para enviar o arquivo para validação do Pix
   async function handleSubmit(file: File) {
     setCardState({ status: "analyzing" });
     trackInitiateCheckout();
@@ -83,6 +87,8 @@ export function VerificationCard() {
       });
     }
   }
+
+  // Função para reiniciar o processo de validação
   function handleRetry() {
     setCardState({ status: "idle" });
     setPreviewUrl(null);

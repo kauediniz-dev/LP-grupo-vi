@@ -5,6 +5,7 @@ declare global {
   }
 }
 
+// Função para enviar o evento de checkout iniciado
 export function trackInitiateCheckout() {
   if (typeof window === "undefined") return;
 
@@ -23,6 +24,7 @@ export function trackInitiateCheckout() {
   });
 }
 
+// Função para enviar o evento de compra concluída
 export function trackPurchase(params: {
   transactionId: string;
   value: number;
