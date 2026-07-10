@@ -68,17 +68,17 @@ Abaixo estão os registros das validações realizadas durante os testes:
 
 | Descrição                          | Imagem                                                       |
 | ---------------------------------- | ------------------------------------------------------------ |
-| Visualização geral de dados no GA4 | ![Dados GA4](./public/evidence/dados_gerais_GA4.png)         |
-| Detalhamento de eventos capturados | ![Dados GA4 GVB](./public/evidence/dados_detalhados_ga4.png) |
-| Fluxo de conversão do Grupo VIP    | ![Dados Grupo VIP](./public/evidence/fluxo_grupo_vip.png)    |
+| Visualização geral de dados no GA4 | ![Dados GA4](./public/evidence/dados_gerais_GA4.PNG)         |
+| Detalhamento de eventos capturados | ![Dados GA4 GVB](./public/evidence/dados_detalhados_ga4.PNG) |
+| Fluxo de conversão do Grupo VIP    | ![Dados Grupo VIP](./public/evidence/fluxo_grupo_vip.PNG)    |
 
 ### Meta Pixel
 
 | Descrição                                     | Imagem                                                                   |
 | --------------------------------------------- | ------------------------------------------------------------------------ |
-| Disparo do evento PageView                    | ![Meta Pixel PageView](./public/evidence/dados_meta_pixel_page_view.png) |
+| Disparo do evento PageView                    | ![Meta Pixel PageView](./public/evidence/dados_meta_pixel_page_view.PNG) |
 | Diagnóstico de eventos (4 eventos rastreados) | ![Meta Pixel 4 Eventos](./public/evidence/meta_pixel_all_events.webp)    |
-| Registro de bloqueio por categoria de aposta  | ![Bloqueio Grupo Dicas](./public/evidence/bloqueio_grupo_dicas.png)      |
+| Registro de bloqueio por categoria de aposta  | ![Bloqueio Grupo Dicas](./public/evidence/bloqueio_grupo_dicas.PNG)      |
 
 ---
 
