@@ -15,7 +15,7 @@ model PixValidation {
   amount      Decimal? @db.Decimal(10, 2)
   currency    String   @default("BRL")
   confidence  Float?
-  status      String
+  status      String 
   minRequired Decimal  @db.Decimal(10, 2)
   rawMessage  String?
   recipientName String?
